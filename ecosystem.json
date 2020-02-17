@@ -1,0 +1,31 @@
+
+{
+  "apps":[
+    {
+      "name":"ice",
+      "script":"server.js",
+      //"instance":2,
+      "env":{
+        "COMMON_VARIABLE":"true"
+      },
+      "env_production":{
+        "NODE_ENV":"production"
+      }
+    }
+  ],
+  "deploy":{
+    "production":{
+      "user":"root",
+      "host":["111.230.183.138"],
+      "port":"22",
+      "ref":"origin/master",
+      "repo":"git@gitee.com:zhanglm1001/ice-quanzhan.git",
+      "path":"/www/ice",
+      "ssh_options":"StrictHostKeyChecking=no",
+      "pre-deploy-local":"echo 'Deploy Done!'",
+      "env":{
+        "NODE_ENV":"production"
+      }
+    }
+  }
+}
